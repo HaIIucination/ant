@@ -1,0 +1,76 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11f vlog 2024.1 2024.02, Feb  1 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dD:/ant/sim
+T_opt
+!s110 1741599314
+VIP=USaf^8zXz7YCcio<_^3
+04 6 4 work alu_tb fast 0
+=1-902e16bb82c0-67ceb252-100-650c
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work +acc
+Z2 tCvgOpt 0
+n@_opt
+OL;O;2024.1;79
+valu
+2../rtl/alu.sv
+Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z4 !s110 1741599313
+!i10b 1
+!s100 T`5>Z`:f7m@`6@;KRYM<L2
+I_m@c_B8fO^d_?PE3LPO4B3
+S1
+R1
+w1741577982
+8../rtl/alu.sv
+F../rtl/alu.sv
+!i122 0
+L0 4 38
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2024.1;79
+r1
+!s85 0
+31
+Z7 !s108 1741599313.000000
+!s107 ../rtl/opcodes.sv|../rtl/alu.sv|
+!s90 -reportprogress|300|../rtl/alu.sv|
+!i113 0
+Z8 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+valu_tb
+2../tests/alu_tb.sv
+R3
+R4
+!i10b 1
+!s100 PIhHEV_FC@_d4UBY<D=4m1
+I6FSd[Ym?aN:G:=kKXK20Z0
+S1
+R1
+w1741599271
+8../tests/alu_tb.sv
+F../tests/alu_tb.sv
+!i122 1
+L0 2 63
+R5
+R6
+r1
+!s85 0
+31
+R7
+!s107 ../rtl/opcodes.sv|../tests/alu_tb.sv|
+!s90 -reportprogress|300|../tests/alu_tb.sv|
+!i113 0
+R8
+R2

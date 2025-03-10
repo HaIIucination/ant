@@ -1,5 +1,5 @@
 // Check for missing cases R-Type and I-Type
-`include "opcodes.sv"
+`include "../rtl/opcodes.sv"
 
 module alu (
     input [ 6:0] opcode,
@@ -13,7 +13,7 @@ module alu (
 );
   always_comb begin : ALU
     case (opcode)
-      R_TYPE:  //R-Type
+      `R_TYPE:  //R-Type
       case (func3)
         3'b000:  result = func7[5] ? b - a : a + b;  // ADD or SUB
         3'b101:  result = a >> (b & 32'h0x1F);  // SRL
@@ -25,7 +25,7 @@ module alu (
         default: result = 32'b0;
       endcase
 
-      I_TYPE:  //I-Type
+      `I_TYPE:  //I-Type
       case (func3)
         3'b000:  result = a + imm;  //ADDI
         3'b010:  result = (a < imm) ? 1 : 0;  // STLI
