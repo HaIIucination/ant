@@ -11,7 +11,6 @@ module decoder (
     output reg [31:0] imm
 );
 
-  assign opcode[6:0] = instruction[6:0];
   assign rd[4:0]     = instruction[11:7];
   assign func3[2:0]  = instruction[14:12];
   assign rs1[4:0]    = instruction[19:15];
@@ -19,17 +18,17 @@ module decoder (
   assign func7[6:0]  = instruction[31:25];
 
   always_comb begin : IMM_GEN
-    case (opcode)
-      I_TYPE, 7'b0000011, 7'b1100111:
+    case (instruction[6:0])
+      `I_TYPE, 7'b0000011, 7'b1100111:
           imm = {{20{instruction[31]}}, instruction[30:20]};
-      S_TYPE:
+      `S_TYPE:
           imm = {{20{instruction[31]}}, instruction[30:25], instruction[11:7]};
-      B_TYPE:
+      `B_TYPE:
           imm = {{19{instruction[31]}}, instruction[7], instruction[30:25], instruction[11:8], 1'b0};
-      U_TYPE:
+      `U_TYPE:
           imm = {instruction[31:12], 12'b0};
-      J_TYPE:
-          imm = {{11{inst[31]}}, inst[19:12], inst[20], inst[30:21], 1'b0};
+      `J_TYPE:
+          imm = {{11{instruction[31]}}, instruction[19:12], instruction[20], instruction[30:21], 1'b0};
       default: imm = 32'b0;
     endcase
   end

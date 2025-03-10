@@ -8,8 +8,8 @@ module instruction_memory (
   assign instruction = memory[pc>>2];
 
   always @(posedge reset) begin
-    //store 10 in register[1]
-    memory[0] = 32'b000000001010_00000_000_00001_0010011;
+    //store 14 in register[1]
+    memory[0] = 32'b000000001110_00000_000_00001_0010011;
     //store 11 in register[2]
     memory[1] = 32'b000000001011_00000_000_00010_0010011;
     //register[1] + register[2] and store in register[3]

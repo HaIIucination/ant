@@ -24,6 +24,7 @@ module instruction_tb;
       $display("PC = %0d, Instruction = %b", uut.pc, instruction);
       #10;
     end
+        $display("Instruction Fetch testbench completed");
     $finish;
   end
 endmodule

@@ -1,15 +1,15 @@
 `include "../rtl/reg_file.sv"
-`include "alu.sv"
+`include "../rtl/alu.sv"
 
 module datapath (
     input clock,
     input reset,
     input reg_write,
-    input rd,
+    input [4:0]rd,
     input [4:0]rs1,
     input [4:0]rs2,
 
-    input [4:0] opcode,
+    input [6:0] opcode,
     input [2:0] func3,
     input [6:0] func7,
     input [31:0] imm

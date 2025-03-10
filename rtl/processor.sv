@@ -1,4 +1,5 @@
 `include "../rtl/instruction_fetch.sv"
+`include "../rtl/control_unit.sv"
 `include "../rtl/decoder.sv"
 `include "../rtl/datapath.sv"
 
@@ -13,6 +14,7 @@ module processor (
   wire [ 4:0] rs2;
   wire [ 6:0] func7;
   wire [31:0] imm;
+  wire reg_write;
 
   instruction_fetch INST_IFU (
       .clock(clock),
@@ -31,7 +33,7 @@ module processor (
   );
 
   control_unit INST_CONTROL (
-      .opcode(opcode),
+      .opcode(instruction[6:0]),
       .reg_write(reg_write)
   );
 
@@ -43,7 +45,7 @@ module processor (
       .rs1(rs1),
       .rs2(rs2),
 
-      .opcode(opcode),
+      .opcode(instruction[6:0]),
       .func3(func3),
       .func7(func7),
       .imm(imm)
