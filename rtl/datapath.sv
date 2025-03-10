@@ -1,4 +1,4 @@
-`include "reg_file.sv"
+`include "../rtl/reg_file.sv"
 `include "alu.sv"
 
 module datapath (

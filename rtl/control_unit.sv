@@ -1,4 +1,4 @@
-`include "opcodes.sv"
+`include "../rtl/opcodes.sv"
 
 module control_unit (
     input [6:0] opcode,

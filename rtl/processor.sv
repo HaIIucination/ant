@@ -1,6 +1,6 @@
-`include "instruction_fetch.sv"
-`include "decoder.sv"
-`include "datapath.sv"
+`include "../rtl/instruction_fetch.sv"
+`include "../rtl/decoder.sv"
+`include "../rtl/datapath.sv"
 
 module processor (
     input clock,
