@@ -1,8 +1,12 @@
 m255
 K4
 z2
-!s12c _opt
-Z0 !s99 nomlopt
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
 !s11f vlog 2024.1 2024.02, Feb  1 2024
 13
 !s112 1.1
@@ -10,68 +14,92 @@ Z0 !s99 nomlopt
 !i10e 25
 !i10f 100
 cModel Technology
-Z1 dD:/ant/sim
+Z2 dD:/ant/sim
 T_opt
-!s110 1741599314
-VIP=USaf^8zXz7YCcio<_^3
-04 6 4 work alu_tb fast 0
-=1-902e16bb82c0-67ceb252-100-650c
-R0
+!s110 1741602312
+VCH?V^2_9PfV><n?UVdFH]2
+04 14 4 work instruction_tb fast 0
+=1-902e16bb82c0-67cebe08-1fc-7dfc
+R1
 !s12f OEM100
 !s12b OEM100
 !s124 OEM100
 o-quiet -auto_acc_if_foreign -work work +acc
-Z2 tCvgOpt 0
+Z3 tCvgOpt 0
 n@_opt
 OL;O;2024.1;79
-R1
-valu
-2../rtl/alu.sv
-Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z4 !s110 1741601287
+vinstruction_fetch
+Z4 2../rtl/instruction_fetch.sv
+Z5 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z6 !s110 1741602307
 !i10b 1
-!s100 T`5>Z`:f7m@`6@;KRYM<L2
-I_m@c_B8fO^d_?PE3LPO4B3
+!s100 65H0_ZW]CR_iNHX2URk[F1
+IcnF_2hZeOf<d<Radah6Uf3
 S1
-R1
-w1741577982
-8../rtl/alu.sv
-F../rtl/alu.sv
-!i122 0
-L0 4 38
-Z5 VDg1SIo80bB@j0V0VzS_@n1
-Z6 OL;L;2024.1;79
+R2
+w1741601392
+8../rtl/instruction_fetch.sv
+F../rtl/instruction_fetch.sv
+!i122 1
+L0 3 19
+Z7 VDg1SIo80bB@j0V0VzS_@n1
+Z8 OL;L;2024.1;79
 r1
 !s85 0
 31
-Z7 !s108 1741601287.000000
-!s107 ../rtl/opcodes.sv|../rtl/alu.sv|
-!s90 -reportprogress|300|../rtl/alu.sv|
+Z9 !s108 1741602307.000000
+Z10 !s107 ../rtl/instruction_memory.sv|../rtl/instruction_fetch.sv|
+Z11 !s90 -reportprogress|300|../rtl/instruction_fetch.sv|
 !i113 0
-Z8 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R2
-valu_tb
-2../tests/alu_tb.sv
+Z12 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R3
+vinstruction_memory
 R4
-!i10b 1
-!s100 PIhHEV_FC@_d4UBY<D=4m1
-I6FSd[Ym?aN:G:=kKXK20Z0
-S1
-R1
-w1741599271
-8../tests/alu_tb.sv
-F../tests/alu_tb.sv
-!i122 1
-L0 2 63
 R5
 R6
+!i10b 1
+!s100 =6hNH:9d7@?_GOSMjV@CR0
+IO:<YJSHTiR3W>RR9Ej0V>2
+S1
+R2
+w1741535468
+8../rtl/instruction_memory.sv
+F../rtl/instruction_memory.sv
+!i122 1
+L0 1 18
+R7
+R8
 r1
 !s85 0
 31
-R7
-!s107 ../rtl/opcodes.sv|../tests/alu_tb.sv|
-!s90 -reportprogress|300|../tests/alu_tb.sv|
+R9
+R10
+R11
 !i113 0
-R8
+R12
+R3
+vinstruction_tb
+2../tests/instruction_tb.sv
+R5
+R6
+!i10b 1
+!s100 2XaQYV;dhog9bl@@endBf1
+ID68YzZL:Jgne6I0>c008A3
+S1
 R2
+w1741602298
+8../tests/instruction_tb.sv
+F../tests/instruction_tb.sv
+!i122 2
+L0 1 29
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 ../tests/instruction_tb.sv|
+!s90 -reportprogress|300|../tests/instruction_tb.sv|
+!i113 0
+R12
+R3

@@ -12,18 +12,18 @@ module instruction_tb;
   always #5 clock = ~clock;
 
   initial begin
-      $display("Starting Instruction Fetch testbench");
+    $display("Starting Instruction Fetch testbench");
 
-      clock=0;
-      reset=1;
+    clock = 0;
+    reset = 1;
 
+    #10;
+    reset = 0;
+
+    repeat (3) begin
+      $display("PC = %0d, Instruction = %b", uut.pc, instruction);
       #10;
-      reset=0;
-
-      repeat (4) begin
-          #10;
-          $display("PC = %0d, Instruction = %0b", uut.pc, instrutction);
-      end
+    end
+    $finish;
   end
-
 endmodule
