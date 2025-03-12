@@ -14,6 +14,8 @@ module processor (
   wire [ 4:0] rs2;
   wire [ 6:0] func7;
   wire [31:0] imm;
+  wire store_enable;
+  wire [3:0] mem_write_enable;
   wire reg_write;
 
   instruction_fetch INST_IFU (
@@ -34,6 +36,10 @@ module processor (
 
   control_unit INST_CONTROL (
       .opcode(instruction[6:0]),
+      .func3(func3),
+
+      .store_enable(store_enable),
+      .mem_write_enable(mem_write_enable),
       .reg_write(reg_write)
   );
 
