@@ -11,6 +11,8 @@ R0
 R1
 R0
 R1
+R0
+R1
 !s11f vlog 2024.1 2024.02, Feb  1 2024
 13
 !s112 1.1
@@ -20,10 +22,10 @@ R1
 cModel Technology
 Z2 dD:/ant/sim
 T_opt
-!s110 1741760543
-V7T:HzbVPA;0E>nePOT5FT2
-04 6 4 work alu_tb fast 0
-=1-902e16bb82c0-67d1281f-297-98f4
+!s110 1741845564
+V=GMeU]S5kk2`jYe_?zDF91
+04 12 4 work processor_tb fast 0
+=1-902e16bb82c0-67d2743c-15-8d98
 R1
 !s12f OEM100
 !s12b OEM100
@@ -33,52 +35,277 @@ Z3 tCvgOpt 0
 n@_opt
 OL;O;2024.1;79
 valu
-2../rtl/alu.sv
-Z4 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z5 !s110 1741760538
+Z4 2../tests/processor_tb.sv
+Z5 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z6 !s110 1741845560
 !i10b 1
-!s100 Z1;j_XFQ;NXCWJDj5VbU?3
-IbMFn6_C:@N1I_2[gOW<WB0
+!s100 T]0=Hi]goPaS6EX9>Cin41
+IPafM:VDCjeD4liO<TbVo:1
 S1
 R2
-w1741760415
+w1741780774
 8../rtl/alu.sv
 F../rtl/alu.sv
-!i122 0
-L0 4 52
-Z6 VDg1SIo80bB@j0V0VzS_@n1
-Z7 OL;L;2024.1;79
+!i122 8
+L0 4 54
+Z7 VDg1SIo80bB@j0V0VzS_@n1
+Z8 OL;L;2024.1;79
 r1
 !s85 0
 31
-Z8 !s108 1741760538.000000
-!s107 ../rtl/opcodes.sv|../rtl/alu.sv|
-!s90 -reportprogress|300|../rtl/alu.sv|
+Z9 !s108 1741845560.000000
+Z10 !s107 ../rtl/alu.sv|../rtl/memory.sv|../rtl/store_unit.sv|../rtl/reg_file.sv|../rtl/datapath.sv|../rtl/decoder.sv|../rtl/opcodes.sv|../rtl/control_unit.sv|../rtl/instruction_memory.sv|../rtl/instruction_fetch.sv|../rtl/processor.sv|../tests/processor_tb.sv|
+Z11 !s90 -reportprogress|300|../tests/processor_tb.sv|
 !i113 0
-Z9 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z12 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R3
-valu_tb
-2../tests/alu_tb.sv
+vcontrol_unit
 R4
 R5
+R6
 !i10b 1
-!s100 iSCPG=^K1CDA;`fd1k;863
-IEg42`IjAEHS9^J?DLUII<2
+!s100 eT2kZOWXC==UgJCn^ne6X1
+IkjkZdaY5K5V>>:F1:_5>o1
 S1
 R2
-w1741760533
-8../tests/alu_tb.sv
-F../tests/alu_tb.sv
-!i122 1
-L0 2 70
-R6
+w1741790348
+8../rtl/control_unit.sv
+F../rtl/control_unit.sv
+!i122 8
+L0 3 32
 R7
+R8
 r1
 !s85 0
 31
-R8
-!s107 ../rtl/opcodes.sv|../tests/alu_tb.sv|
-!s90 -reportprogress|300|../tests/alu_tb.sv|
-!i113 0
 R9
+R10
+R11
+!i113 0
+R12
+R3
+vdatapath
+R4
+R5
+R6
+!i10b 1
+!s100 0INCI^4jMNaO^7FbQQG^c3
+I1U7HzeY@Y3O6_Ae^5KL;E0
+S1
+R2
+w1741845555
+8../rtl/datapath.sv
+F../rtl/datapath.sv
+!i122 8
+L0 6 68
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R3
+vdecoder
+R4
+R5
+R6
+!i10b 1
+!s100 W7cBRUUZICVDc0]k;XQIW0
+IP=NaTm9LYTIa<oT5XEmPT2
+S1
+R2
+w1741606401
+8../rtl/decoder.sv
+F../rtl/decoder.sv
+!i122 8
+L0 3 33
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R3
+vinstruction_fetch
+R4
+R5
+R6
+!i10b 1
+!s100 65H0_ZW]CR_iNHX2URk[F1
+IcnF_2hZeOf<d<Radah6Uf3
+S1
+R2
+w1741601392
+8../rtl/instruction_fetch.sv
+F../rtl/instruction_fetch.sv
+!i122 8
+L0 3 19
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R3
+vinstruction_memory
+R4
+R5
+R6
+!i10b 1
+!s100 c8K1`7L]W=675E:O^Ad1K0
+I8F]ZGlm=D5>_0MeM]APWZ0
+S1
+R2
+w1741795959
+8../rtl/instruction_memory.sv
+F../rtl/instruction_memory.sv
+!i122 8
+L0 1 22
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R3
+vmemory
+R4
+R5
+R6
+!i10b 1
+!s100 <Q]N=]=Q1_AQLg<ZCB;Si3
+IZ:H=KiPnV;mS7B^Sb2P`K2
+S1
+R2
+w1741844730
+8../rtl/memory.sv
+F../rtl/memory.sv
+!i122 8
+Z13 L0 1 32
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R3
+vprocessor
+R4
+R5
+R6
+!i10b 1
+!s100 P6Q?le3Yko4B_[40]?@QR2
+IC@M4eZ8Wdf9[5E8YET7^`0
+S1
+R2
+w1741795421
+8../rtl/processor.sv
+F../rtl/processor.sv
+!i122 8
+L0 6 56
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R3
+vprocessor_tb
+R4
+R5
+R6
+!i10b 1
+!s100 m1Vid;z7Q`AO<<WNPRZPW3
+IF76lo<<5?XbP<d7g5gdi23
+S1
+R2
+w1741786140
+8../tests/processor_tb.sv
+F../tests/processor_tb.sv
+!i122 8
+L0 2 25
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R3
+vreg_file
+R4
+R5
+R6
+!i10b 1
+!s100 X]A_68J>RFEgI>XlQ3:?a2
+IhoWDV[[Fm@ZQk@`No3fU]3
+S1
+R2
+w1741795754
+8../rtl/reg_file.sv
+F../rtl/reg_file.sv
+!i122 8
+R13
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R3
+vstore_unit
+R4
+R5
+R6
+!i10b 1
+!s100 bXAY1B6fzi6BQF5=Z]J`O0
+Id_<6iBbO4Tk81zR_He4nI3
+S1
+R2
+w1741792951
+8../rtl/store_unit.sv
+F../rtl/store_unit.sv
+!i122 8
+L0 1 18
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
 R3

@@ -8,11 +8,11 @@ module processor (
     input reset
 );
   wire [31:0] instruction;
-  wire [ 4:0] rd;
-  wire [ 2:0] func3;
-  wire [ 4:0] rs1;
-  wire [ 4:0] rs2;
-  wire [ 6:0] func7;
+  wire [4:0] rd;
+  wire [2:0] func3;
+  wire [4:0] rs1;
+  wire [4:0] rs2;
+  wire [6:0] func7;
   wire [31:0] imm;
   wire store_enable;
   wire [3:0] mem_write_enable;
@@ -36,7 +36,7 @@ module processor (
 
   control_unit INST_CONTROL (
       .opcode(instruction[6:0]),
-      .func3(func3),
+      .func3 (func3),
 
       .store_enable(store_enable),
       .mem_write_enable(mem_write_enable),
@@ -54,6 +54,8 @@ module processor (
       .opcode(instruction[6:0]),
       .func3(func3),
       .func7(func7),
-      .imm(imm)
+      .imm(imm),
+      .mem_write_enable(mem_write_enable),
+      .store_enable(store_enable)
   );
 endmodule

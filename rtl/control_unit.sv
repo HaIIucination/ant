@@ -10,18 +10,25 @@ module control_unit (
 );
 
   always_comb begin : CONTROL
+    reg_write = 0;
+    store_enable = 0;
+    mem_write_enable = 4'b0000;
     case (opcode)
-      `R_TYPE:  reg_write = 1;
-      `I_TYPE:  reg_write = 1;
-      `S_TYPE:
-          store_enable = 1;
-          case(func3)
-              3'b000: mem_write_enable = 4'b0001;
-              3'b001: mem_write_enable = 4'b0011;
-              3'b010: mem_write_enable = 4'b1111;
-             default: mem_write_enable = 4'b0000;
-          endcase
-      default: reg_write = 0;
+      `R_TYPE: reg_write = 1;
+      `I_TYPE: reg_write = 1;
+      `S_TYPE: begin
+        store_enable = 1;
+        case (func3)
+          3'b000:  mem_write_enable = 4'b0001;
+          3'b001:  mem_write_enable = 4'b0011;
+          3'b010:  mem_write_enable = 4'b1111;
+          default: mem_write_enable = 4'b0000;
+        endcase
+      end
+      default: begin
+        reg_write = 0;
+        mem_write_enable = 4'b0000;
+      end
     endcase
   end
 endmodule

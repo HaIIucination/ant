@@ -1,13 +1,15 @@
 `include "../rtl/reg_file.sv"
+`include "../rtl/store_unit.sv"
+`include "../rtl/memory.sv"
 `include "../rtl/alu.sv"
 
 module datapath (
     input clock,
     input reset,
     input reg_write,
-    input [4:0]rd,
-    input [4:0]rs1,
-    input [4:0]rs2,
+    input [4:0] rd,
+    input [4:0] rs1,
+    input [4:0] rs2,
 
     input [6:0] opcode,
     input [2:0] func3,
@@ -22,14 +24,14 @@ module datapath (
   wire [31:0] read_data2;
   wire [31:0] mem_write_data;
   wire [31:0] mem_read_data;
-  wire [31:0] address = rs1 + imm;
+  wire [31:0] address;
 
   reg_file INST_REG (
       .clock(clock),
       .reset(reset),
 
-      .reg_read1(rs1),
-      .reg_read2(rs2),
+      .reg_read1 (rs1),
+      .reg_read2 (rs2),
       .read_data1(read_data1),
       .read_data2(read_data2),
 
@@ -37,21 +39,23 @@ module datapath (
       .write_reg (rd),
       .write_data(write_data)
   );
-store_unit INST_STORE(
-    .base_reg(rs1),
-    .store_data(rs2),
-    .imm(imm),
-    .func3(func3),
-    .mem_write_data(mem_write_data),
-);
+  store_unit INST_STORE (
+      .base_addr(read_data1),
+      .store_data(read_data2),
+      .imm(imm),
+      .func3(func3),
+      .mem_write_data(mem_write_data),
+      .address(address)
+  );
 
-memory INST_MEM(
-    .address(address),
-    .mem_write_data(mem_write_data),
-    .mem_write_enable(mem_write_enable),
-    .store_enable(store_enable),
-    .mem_read_data(mem_read_data)
-);
+  memory INST_MEM (
+      .clock(clock),
+      .address(address),
+      .mem_write_data(read_data2),
+      .mem_write_enable(mem_write_enable),
+      .store_enable(store_enable),
+      .mem_read_data(mem_read_data)
+  );
 
   alu INST_ALU (
       .opcode(opcode),
@@ -63,4 +67,7 @@ memory INST_MEM(
       .b(read_data2),
       .result(write_data)
   );
+  initial begin
+      $monitor("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa %0d", read_data2);
+  end
 endmodule

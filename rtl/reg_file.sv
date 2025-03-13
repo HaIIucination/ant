@@ -18,7 +18,9 @@ module reg_file (
 
 
   always @(posedge reset) begin
-    register[0] = 32'd0;
+      for(int i=0;i<32;i++) begin
+          register[0] = 32'd0;
+      end
   end
 
   always @(posedge clock) begin
