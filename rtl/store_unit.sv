@@ -7,6 +7,7 @@ module store_unit (
     output [31:0] address
 );
   assign address = base_addr + imm;
+
   always_comb begin : STORE_UNIT
     case (func3)
       3'b000:  mem_write_data = {24'b0, store_data[7:0]};  //SB

@@ -10,7 +10,6 @@ module datapath (
     input [4:0] rd,
     input [4:0] rs1,
     input [4:0] rs2,
-
     input [6:0] opcode,
     input [2:0] func3,
     input [6:0] func7,
@@ -51,7 +50,7 @@ module datapath (
   memory INST_MEM (
       .clock(clock),
       .address(address),
-      .mem_write_data(read_data2),
+      .mem_write_data(mem_write_data),
       .mem_write_enable(mem_write_enable),
       .store_enable(store_enable),
       .mem_read_data(mem_read_data)
@@ -67,7 +66,4 @@ module datapath (
       .b(read_data2),
       .result(write_data)
   );
-  initial begin
-      $monitor("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa %0d", read_data2);
-  end
 endmodule

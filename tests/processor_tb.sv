@@ -17,7 +17,7 @@ module processor_tb;
     #5;
     reset = 0;
     repeat (5) begin
-      $display("Instruction = %b", uut.instruction);
+      $display("Instruction = %b at time %0d", uut.instruction, $time);
       #10;
     end
     $display("Processor testbench completed");

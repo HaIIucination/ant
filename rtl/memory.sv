@@ -18,14 +18,14 @@ module memory (
       if (mem_write_enable[2]) mem[mem_addr+2] = mem_write_data[23:16];
       if (mem_write_enable[3]) mem[mem_addr+3] = mem_write_data[31:24];
     end
-    $display("Stored into memory at mem[%0d:%0d], Data: %0d", mem_addr + 3, mem_addr,
-             mem_write_data);
+    $display("Stored into memory at mem[%0d:%0d], Data: %0d at time %0d", mem_addr + 3, mem_addr,
+             mem_write_data, $time);
   end
   initial begin
-      $monitor("address = %0d", mem_addr);
-      $monitor("mem_write_data = %0d", mem_write_data);
+      $monitor("address = %0d, at time %0d", mem_addr, $time);
+      $monitor("mem_write_data = %0d, at time %0d", mem_write_data, $time);
       #50;
-      for(int i=0; i<256; i++) begin
+      for(int i=0; i<12; i++) begin
           $display("mem[%0d] = %0d", i, mem[i]);
       end
   end
