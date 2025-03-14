@@ -1,0 +1,14 @@
+# Ignore compiled Verilog files
+*.vcd
+*.log
+*.out
+*.wlf  # QuestaSim waveform file
+
+# Ignore instruction/memory dump files
+.nvim/svlangserver/
+
+# Ignore backup and temporary files
+*.bak
+*.swp
+*.tmp
+
