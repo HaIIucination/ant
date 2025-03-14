@@ -13,10 +13,10 @@ module memory (
 
   always @(posedge clock) begin
     if (store_enable) begin
-      if (mem_write_enable[0]) mem[mem_addr] = mem_write_data[7:0];
-      if (mem_write_enable[1]) mem[mem_addr+1] = mem_write_data[15:8];
-      if (mem_write_enable[2]) mem[mem_addr+2] = mem_write_data[23:16];
-      if (mem_write_enable[3]) mem[mem_addr+3] = mem_write_data[31:24];
+      if (mem_write_enable[0]) mem[mem_addr] <= mem_write_data[7:0];
+      if (mem_write_enable[1]) mem[mem_addr+1] <= mem_write_data[15:8];
+      if (mem_write_enable[2]) mem[mem_addr+2] <= mem_write_data[23:16];
+      if (mem_write_enable[3]) mem[mem_addr+3] <= mem_write_data[31:24];
       $display("Stored into memory at mem[%0d:%0d], Data: %0d at time %0d", mem_addr + 3, mem_addr,
                mem_write_data, $time);
     end

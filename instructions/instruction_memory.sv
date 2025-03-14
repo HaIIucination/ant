@@ -12,4 +12,10 @@ module instruction_memory (
     $readmemb("../instructions/store_test_bin.txt", inst_memory);
     $display("Time: %0t - File read completed", $time);
   end
+  initial begin
+      #500;
+      for(int i = 0;i<10;i++) begin
+          $display("%b", inst_memory[i]);
+      end
+  end
 endmodule

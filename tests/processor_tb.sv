@@ -16,7 +16,7 @@ module processor_tb;
     reset = 1;
     #5;
     reset = 0;
-    repeat (12) begin
+    repeat (6) begin
       $display("Instruction = %b at time %0d", uut.instruction, $time);
       #10;
     end

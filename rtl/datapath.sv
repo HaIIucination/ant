@@ -1,5 +1,5 @@
 `include "../rtl/reg_file.sv"
-`include "../rtl/store_unit.sv"
+`include "../rtl/memory_access_unit.sv"
 `include "../rtl/memory.sv"
 `include "../rtl/alu.sv"
 
@@ -15,7 +15,8 @@ module datapath (
     input [6:0] func7,
     input [31:0] imm,
     input [3:0] mem_write_enable,
-    input store_enable
+    input store_enable,
+    input load_enable
 );
 
   wire [31:0] write_data;
@@ -23,6 +24,7 @@ module datapath (
   wire [31:0] read_data2;
   wire [31:0] mem_write_data;
   wire [31:0] mem_read_data;
+  wire [31:0] mem_load_data;
   wire [31:0] address;
 
   reg_file INST_REG (
@@ -34,16 +36,23 @@ module datapath (
       .read_data1(read_data1),
       .read_data2(read_data2),
 
-      .reg_write (reg_write),
-      .write_reg (rd),
-      .write_data(write_data)
+      .reg_write(reg_write),
+      .write_reg(rd),
+      .write_data(write_data),
+      .mem_load_data(mem_load_data),
+      .load_enable(load_enable)
   );
-  store_unit INST_STORE (
+
+  memory_access_unit INST_STORE (
+      .store_enable(store_enable),
+      .load_enable(load_enable),
       .base_addr(read_data1),
       .store_data(read_data2),
+      .load_data(mem_read_data),
       .imm(imm),
       .func3(func3),
-      .mem_write_data(mem_write_data),
+      .mem_store_data(mem_write_data),
+      .mem_load_data(mem_load_data),
       .address(address)
   );
 
@@ -66,4 +75,5 @@ module datapath (
       .b(read_data2),
       .result(write_data)
   );
+
 endmodule

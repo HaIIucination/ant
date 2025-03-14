@@ -15,6 +15,7 @@ module processor (
   wire [6:0] func7;
   wire [31:0] imm;
   wire store_enable;
+  wire load_enable;
   wire [3:0] mem_write_enable;
   wire reg_write;
 
@@ -39,6 +40,7 @@ module processor (
       .func3 (func3),
 
       .store_enable(store_enable),
+      .load_enable(load_enable),
       .mem_write_enable(mem_write_enable),
       .reg_write(reg_write)
   );
@@ -56,6 +58,7 @@ module processor (
       .func7(func7),
       .imm(imm),
       .mem_write_enable(mem_write_enable),
-      .store_enable(store_enable)
+      .store_enable(store_enable),
+      .load_enable(load_enable)
   );
 endmodule

@@ -7,6 +7,7 @@ vlog ../rtl/instruction_fetch.sv
 vlog ../rtl/opcodes.sv
 vlog ../rtl/decoder.sv
 vlog ../rtl/control_unit.sv
+vlog ../rtl/memory_access_unit.sv
 vlog ../rtl/reg_file.sv
 vlog ../rtl/alu.sv
 vlog ../rtl/datapath.sv
