@@ -3,7 +3,7 @@ module instruction_memory (
     input [31:0] pc,
     output [31:0] instruction
 );
-  reg [31:0] inst_memory[8];
+  reg [31:0] inst_memory[256];
   integer fd;
   assign instruction = inst_memory[pc>>2];
 
