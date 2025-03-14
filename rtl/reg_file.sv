@@ -15,11 +15,12 @@ module reg_file (
 
   assign read_data1 = register[reg_read1];
   assign read_data2 = register[reg_read2];
-
+  /*
   always @(posedge clock) begin
       $display("read_data1(%0d) = %0d, read_data2(%0d) = %0d, at time %0d", reg_read1, read_data1,
                reg_read2, read_data2, $time);
   end
+  */
 
 
   always @(posedge reset) begin

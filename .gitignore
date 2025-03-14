@@ -6,7 +6,7 @@
 
 # Ignore instruction/memory dump files
 .nvim/svlangserver
-./sim/work
+sim/work
 
 # Ignore backup and temporary files
 *.bak

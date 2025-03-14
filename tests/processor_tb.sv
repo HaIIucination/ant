@@ -20,7 +20,8 @@ module processor_tb;
       $display("Instruction = %b at time %0d", uut.instruction, $time);
       #10;
     end
-    $display("Processor testbench completed");
+    $display("Processor testbench completed TIME:%0d", $time);
+    #2000;
     $finish;
   end
 endmodule
