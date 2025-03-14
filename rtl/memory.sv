@@ -25,7 +25,7 @@ module memory (
       $monitor("address = %0d, at time %0d", mem_addr, $time);
       $monitor("mem_write_data = %0d, at time %0d", mem_write_data, $time);
       #50;
-      for(int i=0; i<12; i++) begin
+      for(int i=0; i<256; i++) begin
           $display("mem[%0d] = %0d", i, mem[i]);
       end
   end
