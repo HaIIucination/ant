@@ -22,7 +22,7 @@ module decoder (
       `I_TYPE, 7'b0000011, 7'b1100111: imm = {{20{instruction[31]}}, instruction[30:20]};
       `S_TYPE: imm = {{20{instruction[31]}}, instruction[30:25], instruction[11:7]};
       `B_TYPE:
-      imm = {{19{instruction[31]}}, instruction[7], instruction[30:25], instruction[11:8], 1'b0};
+      imm = {{20{instruction[31]}}, instruction[7], instruction[30:25], instruction[11:8], 1'b0};
       `U_TYPE: imm = {instruction[31:12], 12'b0};
       `J_TYPE:
       imm = {{11{instruction[31]}}, instruction[19:12], instruction[20], instruction[30:21], 1'b0};

@@ -3,6 +3,9 @@
 module instruction_fetch (
     input clock,
     input reset,
+    input branch,
+    input jump,
+    input [31:0] imm,
     output [31:0] instruction
 );
 
@@ -16,6 +19,8 @@ module instruction_fetch (
 
   always @(posedge clock or posedge reset) begin
     if (reset == 1) pc <= 0;
+    else if(branch) pc <= pc + imm;
+    else if(jump) pc<= pc + imm;
     else pc <= pc + 4;
   end
 endmodule

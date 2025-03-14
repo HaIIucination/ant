@@ -9,13 +9,7 @@ module instruction_memory (
 
   always @(posedge reset) begin
     $display("Time: %0t - Starting file read", $time);
-    $readmemb("../instructions/load_test_bin.txt", inst_memory);
+    $readmemb("../instructions/branch_test_bin.txt", inst_memory);
     $display("Time: %0t - File read completed", $time);
   end
-  initial begin
-      #500;
-      for(int i = 0;i<10;i++) begin
-          $display("%b", inst_memory[i]);
-      end
-  end
-endmodule
+  endmodule

@@ -18,10 +18,15 @@ module processor (
   wire load_enable;
   wire [3:0] mem_write_enable;
   wire reg_write;
+  wire branch;
+  wire jump;
 
   instruction_fetch INST_IFU (
       .clock(clock),
       .reset(reset),
+      .branch(branch),
+      .jump(jump),
+      .imm(imm),
       .instruction(instruction)
   );
 
@@ -59,6 +64,9 @@ module processor (
       .imm(imm),
       .mem_write_enable(mem_write_enable),
       .store_enable(store_enable),
-      .load_enable(load_enable)
+      .load_enable(load_enable),
+      .branch(branch),
+      .jump(jump)
   );
+
 endmodule

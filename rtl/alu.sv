@@ -9,10 +9,14 @@ module alu (
 
     input signed [31:0] a,
     input signed [31:0] b,
-    output reg signed [31:0] result
+    output reg signed [31:0] result,
+    output reg branch,
+    output reg jump
 );
   wire [4:0] shmat = imm[4:0];
   always_comb begin : ALU
+    branch = 0;
+    jump   = 0;
     case (opcode)
       `R_TYPE:  //R-Type
       if (~func7[0]) begin
@@ -51,7 +55,18 @@ module alu (
         3'b101:  result = imm[10] ? $signed(a) >>> shmat : a >> shmat;  //SRLI and SRAI
         default: result = 32'b0;
       endcase
+      `B_TYPE:
+      case (func3)
+        3'b000:  branch = (a == b);
+        3'b001:  branch = (a != b);
+        3'b100:  branch = ($signed(a) < $signed(b));
+        3'b101:  branch = ($signed(a) >= $signed(b));
+        3'b110:  branch = (a < b);
+        3'b111:  branch = (a >= b);
+        default: branch = 0;
+      endcase
       default: result = 32'b0;
     endcase
+
   end
 endmodule

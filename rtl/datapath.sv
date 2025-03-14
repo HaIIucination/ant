@@ -16,7 +16,9 @@ module datapath (
     input [31:0] imm,
     input [3:0] mem_write_enable,
     input store_enable,
-    input load_enable
+    input load_enable,
+    output branch,
+    output jump
 );
 
   wire [31:0] write_data;
@@ -70,6 +72,8 @@ module datapath (
       .func3(func3),
       .func7(func7),
       .imm(imm),
+      .branch(branch),
+      .jump(jump),
 
       .a(read_data1),
       .b(read_data2),
