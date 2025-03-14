@@ -1,4 +1,4 @@
-`include "../rtl/instruction_memory.sv"
+`include "../instructions/instruction_memory.sv"
 
 module instruction_fetch (
     input clock,

@@ -2,7 +2,7 @@ vlib work
 vdel -all
 vlib work
 
-vlog ../rtl/instruction_memory.sv
+vlog ../instructions/instruction_memory.sv
 vlog ../rtl/instruction_fetch.sv
 vlog ../rtl/opcodes.sv
 vlog ../rtl/decoder.sv
